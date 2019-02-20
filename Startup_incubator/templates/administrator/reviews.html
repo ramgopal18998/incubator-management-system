@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  
+</head>
+<body>
+  <!--left navigation bar-->
+  {% include "administrator/base.html" %} 
+<section id="contents">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <i class="fa fa-align-right"></i>
+        </button>
+        <a class="navbar-brand" href="#">Reviews <span class="main-color">Evalution</span></a>
+      </div>
+      {% include "administrator/header.html" %} 
+    </div>
+  </nav>	
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12" style="color:white;">
+        <br>
+        <br>
+   <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>S No.</th>
+        <th>Given by</th>
+        <th>Given to</th>
+        <th>Review</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for review in reviews %}
+      {% if review.by_startup == 1 %}
+      <tr>
+        <td>{{review.id}}</td>
+        <td>{{review.startup.name}}</td>
+        <td>{{review.mentor.name}}</td>
+        <td>{{review.review}}</td>
+      </tr>
+      {% else %}
+      <tr>
+        <td>{{review.id}}</td>
+        <td>{{review.mentor.name}}</td>
+        <td>{{review.startup.name}}</td>
+        <td>{{review.review}}</td>
+      </tr>
+      {% endif %}
+      {% endfor %}
+    </tbody>
+  </table>
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Video</h4>
+      </div>
+      <div class="modal-body">
+        <p>testdafadfd</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>  
+
+  </div>
+</div>
+     </div>
+   </div>
+ </div>	  
+</section>
+<script src='http://code.jquery.com/jquery-latest.js'></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
+<script src='js/mainuser.js'></script>
+</body>
+</html>
+<script  src="js/indexuser.js"></script>
+</body> 
+</html>

@@ -1,0 +1,55 @@
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    
+  </head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <body>
+    <!--left navigation bar-->
+    {% include "startup/base.html" %} 
+  <section id="contents">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <i class="fa fa-align-right"></i>
+          </button>
+          <a class="navbar-brand" href="#">Register<span class="main-color">Tickets</span></a>
+        </div>
+      {% include "startup/header.html" %}
+      </div>
+    </nav>	
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6" style="color:white;">
+         <br>
+         <form action="" method="POST">
+          <div class="form-group">
+            <label for="Document Name">Ticket Title</label>
+            <input style="color:black;" name="title" type="text" class="form-control" id="ticket">
+          </div>
+          <br>
+          <div class="form-group">
+            <label for="Document Name">Ticket Description</label>
+            <br>
+            <textarea rows="10" cols="72" style="color:black;" type="text" name="issue" placeholder="description" required ></textarea>
+          </div>
+          <br>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        {% if msg != '' %}
+        <script type="text/javascript">swal("Your Ticket has been Generated!!. Monitor it from your tickets section")</script>
+        {%endif%}
+      </div>
+    </div>
+  </div>	  
+</section>
+<script src='http://code.jquery.com/jquery-latest.js'></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
+
+</body>
+
+</html>

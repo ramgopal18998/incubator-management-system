@@ -1,0 +1,135 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Incubation request</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="{% static "administrator/css/styleuser.css" %}">
+
+</head>
+<body>
+  <!--left navigation bar-->
+  {% include "administrator/base.html" %} 
+<section id="contents">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <i class="fa fa-align-right"></i>
+        </button>
+        <a class="navbar-brand" href="#">Incubation Requests<span class="main-color"></span></a>
+      </div>
+      {% include "administrator/header.html" %}
+    </div>
+  </nav>	
+  <h3 align="center" style="color:white;">Incubation requests</h3><br>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12" style="color:white;">
+       <br>
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ <h5><center>Just click on the table header to Sort the Applications</center></h5>
+<table id="mytable" class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Company</th>
+        <th>No of Employees</th>
+        <th id="sl">Experience</th>
+        <th>Date Applied</th>
+        <th id="nm" >Turn Over</th>
+        <th>Presentation link</th>
+        <th>Accept/Reject</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      {% for req in incubation %}
+      <tr>
+        <td>{{ req.startup.name }} ({{ req.startup.cat }})</td>
+        <td>{{ req.startup.no_of_employees }}</td>
+        <td>{{ req.startup.experience }} years</td>
+        <td>{{ req.date }}</td>
+        <td>{{ req.startup.turnover }} lakhs</td>
+        <td><a href="{{ req.ppt.url }}">Click here</a></td>
+        <td><button type="button" class="btn btn-success">
+            <a style="color:white;" href="{% url 'administrator:accept_incubation' req.startup.id%}" "> Accept</a>
+            </button>&nbsp;<button type="button" class="btn btn-danger">
+              <a style="color:white;" href="{% url 'administrator:reject_incubation' req.startup.id%}" ">Reject</a></button></td>
+      </tr>
+      {% endfor %}
+      
+    </tbody>
+  </table>
+     </div>
+   </div>
+ </div>	  
+</section>
+<script type="text/javascript">
+ function sortTable(f,n){
+  var rows = $('#mytable tbody  tr').get();
+
+  rows.sort(function(a, b) {
+
+    var A = getVal(a);
+    var B = getVal(b);
+
+    if(A < B) {
+      return -1*f;
+    }
+    if(A > B) {
+      return 1*f;
+    }
+    return 0;
+  });
+
+  function getVal(elm){
+    var v = $(elm).children('td').eq(n).text().toUpperCase();
+    if($.isNumeric(v)){
+      v = parseInt(v,10);
+    }
+    return v;
+  }
+
+  $.each(rows, function(index, row) {
+    $('#mytable').children('tbody').append(row);
+  });
+}
+var f_sl = 1;
+var f_nm = 1;
+$("#sl").click(function(){
+  $("#sl").css("background-color","yellow");
+  $("#sl").css("color","black");
+    f_sl *= -1;
+    var n = $(this).prevAll().length;
+    sortTable(f_sl,n);
+});
+$("#nm").click(function(){
+  $("#nm").css("background-color","yellow");
+  $("#nm").css("color","black");
+    f_nm *= -1;
+    var n = $(this).prevAll().length;
+    sortTable(f_nm,n);
+}); 
+
+</script>
+  <script type="text/javascript">
+     
+      var x = '{{msg}}' ;
+      if (x.length > 2){
+        swal('{{ msg }}');
+      } 
+      
+      </script>
+<script src='http://code.jquery.com/jquery-latest.js'></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
+<script src="{% static "administrator/js/mainuser.js"%}"></script>
+</body>
+</html>
+<script  src="{% static "administrator/js/indexuser.js"%}"></script>
+</body> 
+</html>

@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  
+  <link rel="stylesheet" href="{% static "administrator/css/styletimeline.css" %}">
+</head>
+<body style="overflow-x: hidden;">
+  <!--left navigation bar-->
+  {% include "administrator/base.html" %} 
+<section id="contents">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <i class="fa fa-align-right"></i>
+        </button>
+        <a class="navbar-brand" href="#">Evaluation<span class="main-color"></span></a>
+      </div>
+      {% include "administrator/header.html" %}
+    </div>
+  </nav>	
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+       <br>
+       <!-- {% if msg != '' %}
+       <script type="text/javascript">swal("Your completion request is informed to 36 INC")</script>
+       {% endif %} -->
+       <section class="timeline">
+        <div class="container">
+          {% for milestone in milestones %}
+              <div class="timeline-item">
+            <div class="timeline-img"></div>
+
+            <div class="timeline-content js--fadeInLeft">
+
+              <h2>{{milestone.title}}</h2>
+             
+               {% if milestone.completed_startup %}
+               {% if milestone.completed_admin == 0 %}
+               <img src="{% static "administrator/img/pending.gif" %}"  style="width:10%; height:10%;float:right;">
+               {% endif %}
+               {% endif %}
+              
+              
+              {% if milestone.completed_admin %}
+               <img src="{% static "administrator/img/connected.gif" %}"  style="width:40%; height:40%;float:right;">
+              }
+              {% endif %}
+
+              <div class="date">{{milestone.deadline}}</div>
+              <p>{{milestone.description}}</p>
+              <p>
+            {% if milestone.completed_admin != 1 %}
+            <button class="btn btn-sucess"> <a href="{% url 'administrator:complete_milestone' milestone.id%}">Completed</a></button>
+             
+            {% endif %}
+            </div>
+          </div> 
+
+
+
+
+          {% endfor %}
+          
+        </div>
+      </section>
+    </div>
+  </div>
+</div>	  
+</section>
+<script src='http://code.jquery.com/jquery-latest.js'></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
+
+<script  src="{% static "administrator/js/indexmilestone.js"%}"></script>
+
+
+</body>
+</html>
+

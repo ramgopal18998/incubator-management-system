@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>{{ investor.name }}</title>
+  
+  
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css'>
+
+      <link rel="stylesheet" href="{% static "startup/css/styleprofile.css" %}">
+
+  
+</head>
+
+<body>
+
+
+  <aside class="profile-card">
+
+  <header>
+    <button onclick="goBack()">X</button>
+
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
+    <!-- here’s the avatar -->
+    <a target="_blank" href="#">
+      <img class="img-responsive" style="height:85px;width:85px;"  src="{{investor.image.url}}" alt="admin">
+    </a>
+
+    <!-- the username -->
+    <h1>{{ investor.name}} </h1>
+
+    <!-- and role or location -->
+    <h4>  {{ investor.email }}  </h4>
+
+  </header>
+
+  <!-- bit of a bio; who are you? -->
+  <div class="profile-bio">
+
+    <p>
+      {{ investor.description }}
+    </p>
+
+  </div>
+
+  <!-- some social links to show off -->
+  <ul class="profile-social-links">
+    <li>
+      <a target="_blank" href="https://www.facebook.com/creativedonut">
+        <i class="fa fa-facebook"></i>
+      </a>
+    </li>
+    <li>
+      <a target="_blank" href="https://twitter.com/dropyourbass">
+        <i class="fa fa-twitter"></i>
+      </a>
+    </li>
+    <li>
+      <a target="_blank" href="https://github.com/vipulsaxena">
+        <i class="fa fa-github"></i>
+      </a>
+    </li>
+    <li>
+      <a target="_blank" href="https://www.behance.net/vipulsaxena">
+       
+        <i class="fa fa-behance"></i>
+      </a>
+    </li>
+  </ul>
+</aside>
+  
+  
+
+</body>
+
+</html>

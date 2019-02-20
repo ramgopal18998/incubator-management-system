@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  
+</head>
+<body>
+  <!--left navigation bar-->
+  {% include "administrator/base.html" %} 
+<section id="contents">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <i class="fa fa-align-right"></i>
+        </button>
+        <a class="navbar-brand" href="#">Show<span class="main-color">Tickets </span></a>
+      </div>
+     {% include "administrator/header.html" %}
+    </div>
+  </nav>	   
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12" style="color:white;">
+       <br>
+                   <section class="admins">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="box">
+                
+            
+                {% for t in left_tickets %}
+                <div class="admin">
+                  <div class="img">
+                    <img class="img-responsive" src="{{t.startup.image.url}}" alt="admin">
+                  </div>
+                  <div class="info">
+                    <h4 style="float:right;"><img class="img-responsive" style="height:50px;width:50px;" src=" {% static "administrator/img/alert.gif" %}" ></h4>
+                    <h2>{{t.title}}</h2>
+                    <h4><span>Startup Name &nbsp;&nbsp;</span>{{t.startup.name}}</h4>
+
+                    <p>created on &nbsp; - &nbsp;{{t.issue_date}}</p>
+                    <a href="{% url 'administrator:show_ticket' t.id%}"><button type="button" class="btn btn-primary">View</button></a>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="box">
+                
+            {% if msg != '' %}
+            <script type="text/javascript">swal("The issue has been solved")</script>
+            {% endif %}
+                {% for t in right_tickets %}
+                <div class="admin">
+                  <div class="img">
+                    <img class="img-responsive" src="{{t.startup.image.url}}" alt="admin">
+                  </div>
+                  <div class="info">
+                    <h4 style="float:right;"><img class="img-responsive" style="height:50px;width:50px;" src=" {% static "administrator/img/alert.gif" %}" ></h4>
+                    <h2>{{t.title}}</h2>
+                    <h4><span>Startup Name &nbsp;&nbsp;</span>{{t.startup.name}}</h4>
+
+                    <p>created on &nbsp; - &nbsp;{{t.issue_date}}</p>
+                     <a href="{% url 'administrator:show_ticket' t.id%}"><button type="button" class="btn btn-primary">View</button></a>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          </section>
+    </div>
+  </div>
+</div>	  
+</section>
+<script src='http://code.jquery.com/jquery-latest.js'></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
+
+</body> 
+</html>
+  

@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+ <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Startups</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "startup/css/styleuser.css"%}">
+  </head>
+  <body>
+  <!--left navigation bar-->
+    {% include "investor/base.html" %} 
+    <section id="contents">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <i class="fa fa-align-right"></i>
+            </button>
+            <a class="navbar-brand" href="#">My<span class="main-color">Startups</span></a>
+          </div>
+          {% include "investor/header.html" %}
+        </div>
+      </nav>  
+      <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12" style="color:white;">
+      <br>
+             <h3>Startups</h3>
+             <section class="admins">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="box">
+                
+                {% for m in startups_right %} 
+                    <a href="#" >
+                      <div class="admin">
+                        <div class="img">
+                          <img class="img-responsive" src="{{m.image}}">
+                        </div>
+                        <div class="info">
+                          <h4 style="float:right;"><img class="img-responsive" style="height:50px;width:150px;" src="{% static "investor/img/connected.gif" %}" ></h4>
+                          <h3>{{ m.name }}</h3>
+                          <p>{{ m.description|slice:":100" }}</p>
+                        </div>
+                      </div>
+                    </a>
+                {% endfor %}
+                    <!--
+                      <div class="admin">
+                        <div class="img">
+                          <img class="img-responsive" src="https://uniim1.shutterfly.com/ng/services/mediarender/THISLIFE/021036514417/media/23148906966/small/1501685402/enhance" alt="admin">
+                        </div>
+                        <div class="info">
+                          <h3>Joge Lucky</h3>
+                          <p>Lorem ipsum dolor sit amet.</p>
+                        </div>
+                      </div>
+                    
+                      <div class="admin">
+                        <div class="img">
+                          <img class="img-responsive" src="https://uniim1.shutterfly.com/ng/services/mediarender/THISLIFE/021036514417/media/23148907137/small/1501685404/enhance" alt="admin">
+                        </div>
+                        <div class="info">
+                          <h3>Joge Lucky</h3>
+                          <p>Lorem ipsum dolor sit amet.</p>
+                        </div>
+                      </div>
+
+                      <div class="admin">
+                        <div class="img">
+                          <img class="img-responsive" src="https://uniim1.shutterfly.com/ng/services/mediarender/THISLIFE/021036514417/media/23148907019/small/1501685403/enhance" alt="admin">
+                        </div>
+                        <div class="info">
+                          <h3>Joge Lucky</h3>
+                          <p>Lorem ipsum dolor sit amet.</p>
+                        </div>
+                      </div>
+                   -->
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="box">
+                {% for m in startups_left %} 
+                    <a href="#" ">
+                      <div class="admin">
+                        <div class="img">
+                          <img class="img-responsive" src="{{m.image}}" alt="admin">
+                        </div>
+                        <div class="info">
+                          <h4 style="float:right;"><img class="img-responsive" style="height:50px;width:150px;" src="img/connected.gif" ></h4>
+                          <h3>{{ m.name }}</h3>
+                          <p>{{ m.description|slice:":100" }}</p>
+                        </div>
+                      </div>
+                    </a>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          </section>
+       </div>
+
+          </div>
+        </div>    
+      </section>
+          
+  
+
+      <script src='http://code.jquery.com/jquery-latest.js'></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
+      <script src="{% static "startup/js/mainuser.js" %}"></script>
+      </body>
+    </html>
+  
+  
+
+    <script  src="{% static "startup/js/indexuser.js" %}"></script>
+
+
+
+
+</body>
+
+</html>

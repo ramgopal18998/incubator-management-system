@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  
+<body>
+  <!--left navigation bar-->
+  {% include "administrator/base.html" %} 
+<section id="contents">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <i class="fa fa-align-right"></i>
+        </button>
+        <a class="navbar-brand" href="#">Evaluation<span class="main-color"></span></a>
+      </div>
+     {% include "administrator/header.html" %}
+    </div>
+  </nav>	
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+       <br>
+       <div
+<div class="card" style="color:white;">
+  <img src="{{ticket.startup.image.url}}" style="height:100px; width:100px;" class="img img-circle" alt="John" >
+  <h1>{{ticket.startup.name}}</h1>
+    <p class="title">{{ticket.cat}}</p>
+
+  <h3 class="title">{{ticket.title}}</h3>
+  <p class="title">{{ticket.issue_date}}</p>
+  <p>{{ticket.issue}}</p>
+  <div style="margin: 24px 0;"> 
+    <a href="#"><i class="fa fa-dribbble"></i></a> 
+    <a href="#"><i class="fa fa-twitter"></i></a>  
+    <a href="#"><i class="fa fa-linkedin"></i></a>  
+    <a href="#"><i class="fa fa-facebook"></i></a> 
+  </div>
+  <p><a href="{% url 'administrator:solve_ticket' ticket.id %}"><button type="button" class="btn btn-primary" style="color:black;">Solve</button></a></p>
+</div>
+    </div>
+  </div>
+</div>	  
+</section>
+<script src='http://code.jquery.com/jquery-latest.js'></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
+<script src='js/mainuser.js'></script>
+</body>
+</html>
+<script  src="js/indexuser.js"></script>
+</body> 
+</html>

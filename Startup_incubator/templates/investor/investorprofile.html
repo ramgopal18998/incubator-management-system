@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <body>
+    <!--left navigation bar-->
+    {% include "investor/base.html" %} 
+    <section id="contents">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <i class="fa fa-align-right"></i>
+            </button>
+            <a class="navbar-brand" href="#">Profile<span class="main-color"></span></a>
+          </div>
+          {% include "investor/header.html" %}
+        </div>
+      </nav>	
+
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6">
+           <br>
+           <div class="card" style="color:white;">
+
+
+            <div class="w3-container ">
+              <h2></h2>
+
+              <div class="w3-card-2" style="width:50%">
+                <img src="{{ investor.image.url }}" alt="Norway" style="border:2px solid yellow; width:100px;height:100px;margin-left:10px;">
+                <div class="w3-container ">
+                  <p>Name = {{investor.name}}</p>
+                  <p >Expertise = {{investor.expertise}}</p>
+                  <p>Email = {{investor.email}}</p>
+                  <p>Phone No = {{investor.phone_number}}</p>
+                  <p>Investment Range = {{investor.investment_range}}</p>
+                  <p>{{investor.description}}</p>
+                  <div style="margin: 24px 0;">
+                    <a href="#"><i class="fa fa-dribbble"></i></a> 
+                    <a href="#"><i class="fa fa-twitter"></i></a>  
+                    <a href="#"><i class="fa fa-linkedin"></i></a>  
+                    <a href="#"><i class="fa fa-facebook"></i></a> 
+                  </div>
+                  <p><button style="color:black;">Contact</button></p>
+                </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>	  
+  </section>

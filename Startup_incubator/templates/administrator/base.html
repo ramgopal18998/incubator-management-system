@@ -1,0 +1,50 @@
+{% load static %}
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link  rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "administrator/css/styleuser.css" %}">
+    <aside style="background: black;" class="side-nav" id="show-side-navigation1">
+    <i class="fa fa-bars close-aside hidden-sm hidden-md hidden-lg" data-close="show-side-navigation1"></i>
+    <div class="heading" style="background: black;">
+      <img src="https://36inc.in/assets/img/logo/logo.png" alt="">
+      <div class="info">
+        <h3><b>Admin (36Inc)</b></h3>
+       <!--  <h3><a href="/administrator">{{ admin.username }}</a></h3>
+        <p>{{ admin.email }}</p> -->
+      </div>
+    </div>
+    <div class="search">
+      <input type="text" placeholder="Type here"><i class="fa fa-search"></i>
+    </div>
+    <ul class="categories">
+     <li><i class="fa fa-home fa-fw" aria-hidden="true"></i><a href="/administrator/add_investor"> Add Investor</a></li>
+     <li><i class="fa fa-home fa-fw" aria-hidden="true"></i><a href="/administrator/add_mentor"> Add Mentor</a></li>
+     <li><i class="fa fa-home fa-fw" aria-hidden="true"></i><a href="/administrator/show_startups"> Show Startups</a></li>
+     <li><i class="fa fa-home fa-fw" aria-hidden="true"></i><a href="/administrator/show_funded_startups"> Show Funded Startups</a></li>
+     <li><i class="fa fa-home fa-fw" aria-hidden="true"></i><a href="/administrator/assign_mentor">Assign Mentors</a></li>
+    </li>
+    <li><i class="fa fa-home fa-fw" aria-hidden="true"></i><a href="/administrator/show_investors">Show Investors</a>
+    </li>
+    <li><i class="fa fa-home fa-fw" aria-hidden="true"></i><a href="/administrator/reviews">Show Reviews</a>
+    </li>
+    <li><i class="fa fa-home fa-fw" aria-hidden="true"></i><a href="/rent">Manage room rents</a></li>
+    <li><i class="fa fa-home fa-fw" aria-hidden="true"></i><a>Applications</a>
+      <ul class="side-nav-dropdown">
+        <li><a href="">Application for Funding</a></li>
+        <li><a href="/administrator/show_incubation">Application for Incubation</a></li>
+      </ul>
+    </li>
+    <li><i class="fa fa-home fa-fw" aria-hidden="true"></i><a href="/administrator/update_info">Add Updates</a></li>
+  <li><i class="fa fa-home fa-fw" aria-hidden="true"></i><a href="/administrator/upload_documents">Add Documents</a></li>
+  <li><i class="fa fa-home fa-fw" aria-hidden="true"></i><a href="/administrator/show_tickets"> Show Tickets</a></li>
+  </ul>
+</aside>
+<!-- <script src='http://code.jquery.com/jquery-latest.js'></script> -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
+      <script src="{% static "startup/js/mainuser.js" %}"></script>
+  
+
+    <script  src="{% static "startup/js/indexuser.js" %}"></script>

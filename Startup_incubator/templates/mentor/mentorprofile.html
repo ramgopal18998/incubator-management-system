@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+
+<body>
+  <!--left navigation bar-->
+  {% include "mentor/base.html" %} 
+<section id="contents">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <i class="fa fa-align-right"></i>
+        </button>
+        <a class="navbar-brand" href="#">Profile<span class="main-color"></span></a>
+      </div>
+      
+    </div>
+  </nav>	
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+       <br>
+<div class="card" style="color:white;">
+  <img src="{{ mentor.image.url }}" height="100" width="100"  alt="John" >
+  <h1>{{mentor.name}}</h1>
+  <p class="title">{{mentor.expertise}}</p>
+  <p>{{mentor.email}}</p>
+  <p>{{mentor.phone_number}}</p>
+  <p>{{mentor.investment_range}}</p>
+  <p>{{mentor.description}}</p>
+
+  <div style="margin: 24px 0;">
+    <a href="#"><i class="fa fa-dribbble"></i></a> 
+    <a href="#"><i class="fa fa-twitter"></i></a>  
+    <a href="#"><i class="fa fa-linkedin"></i></a>  
+    <a href="#"><i class="fa fa-facebook"></i></a> 
+  </div>
+  <p><button style="color:black;">Contact</button></p>
+</div>
+    </div>
+  </div>
+</div>    
+</section>
+
+ <script type="text/javascript">
+     
+      var x = '{{msg}}' ;
+      if (x.length > 2){
+        swal('{{ msg }}');
+      } 
+      
+      </script>
+
+    <script  src="{% static "startup/js/indexuser.js" %} "></script>

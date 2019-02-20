@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Share videos</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
+  <link rel="stylesheet" href="{% static "administrator/css/styleuser.css" %}" >
+</head>
+<body>
+  <!--left navigation bar-->
+  {% include "mentor/base.html" %} 
+  <section id="contents">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <i class="fa fa-align-right"></i>
+          </button>
+          <a class="navbar-brand" href="#">Share<span class="main-color">Videos</span></a>
+        </div>
+        {% include "mentor/header.html" %}
+      </div>
+    </nav>	
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-6" style="color:white;">
+         <br>
+         <form action="" method="POST" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="Document Name">Video Name:</label>
+            <input type="text" name="name" class="form-control" id="document">
+          </div>
+         <div class="form-group">
+            <label for="Document Name">Video Url</label>
+            <input type="text" name="link" class="form-control" id="document">
+          </div>
+         <br>
+         <br>
+         <button type="submit" class="btn btn-default">Upload</button>
+       </form>
+     </div>
+     <div class="col-md-6" style="color:white;">
+         {% for d in documents %}
+       <embed width="191" height="207" name="plugin" src="{{d}}" type="application/pdf">
+        {% endfor %}
+     </div>
+
+       
+        {% if errormessage %}
+        <script type="text/javascript">swal("Your document have been saved successfully");</script>
+
+        {% endif %}
+
+      </div>
+
+    </div>
+  </div>	  
+</section>
+
+
+
+<script src='http://code.jquery.com/jquery-latest.js'></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
+<script src="{% static "administrator/js/mainuser.js"%}"></script>
+</body>
+</html>
+<script  src="{% static "administrator/js/indexuser.js"%}"  ></script>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+{% load static %}
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<link  rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
+<link rel="stylesheet" href="{% static "startup/css/styleuser.css" %}">
+
+<aside class="side-nav" id="show-side-navigation1">
+  <i class="fa fa-bars close-aside hidden-sm hidden-md hidden-lg" data-close="show-side-navigation1"></i>
+  <div class="heading">
+   <img  style="border:2px solid yellow;height:18%;width:25%;" src="{{ startup.image.url }}" alt="">
+   <div class="info">
+    <h3><b>Start Up</b></h3>
+    <h3><a href="/startup">{{ startup.name }}</a></h3>
+    <p>{{ startup.cat }}</p>
+
+  </div>
+</div>
+{% if accepted == "false" %}
+<ul class="categories">
+  <li><i class="fa fa-home fa-fw" aria-hidden="true"></i><a href="/startup/apply_incubation">Apply For Incubation</a></li>
+  <li><i class="fa fa-home fa-fw" aria-hidden="true"></i><a href="/startup/apply_fund">Apply For Fund</a></li>   </ul>
+  {% endif %}
+  {% if accepted == "true" %}
+  <ul class="categories">
+
+    <li><i class="fa fa-home fa-fw" aria-hidden="true"></i><a href="/startup/about"> About us</a></li>
+    <li><i class="fa fa-home fa-fw" aria-hidden="true"></i><a href="/startup/mentors"> My Mentors</a></li>
+    <li><i class="fa fa-home fa-fw" aria-hidden="true"></i><a href="#">Investors</a>
+      <ul class="side-nav-dropdown">
+        <li><a href="/startup/investors">All Investors</a></li>
+        <li><a href="/startup/show_connections">My Investors</a></li>
+        <li><a href="/startup/show_pending_connections">Pending Requests</a></li>
+      </ul>
+    </li>
+    <li><i class="fa fa-home fa-fw" aria-hidden="true"></i><a href="/startup/upload_documents"> Upload Documents</a></li>
+     <li><i class="fa fa-home fa-fw" aria-hidden="true"></i><a href="/startup/show_milestones"> Show Milestones</a></li>
+    <li><i class="fa fa-home fa-fw" aria-hidden="true"></i><a href="/startup/show_bookings">Book a Conference Room</a></li>
+    <li><i class="fa fa-home fa-fw" aria-hidden="true"></i><a href="{% url 'startup:my_videos' %}">My Videos</a></li>
+    <li><i class="fa fa-home fa-fw" aria-hidden="true"></i><a href="{% url 'startup:my_documents' %}">My Documents</a></li>
+    <li><i class="fa fa-home fa-fw" aria-hidden="true"></i><a href="#">Tickets</a>
+    <ul class="side-nav-dropdown">
+      <li><a href="/startup/generate_ticket">Generate Tickets</a></li>
+      <li><a href="/startup/mytickets">Get Tickets</a></li>
+    </ul>
+    </li>
+    <li><i class="fa fa-home fa-fw" aria-hidden="true"></i><a href="/startup/show_milestones">Milestones</a></li>
+    <li><i class="fa fa-home fa-fw" aria-hidden="true"></i><a href="/startup/apply_incubation">Apply For Incubation</a></li>
+    <li><i class="fa fa-home fa-fw" aria-hidden="true"></i><a href="#" >Apply For Fund</a></li>
+  </ul>
+  {% endif %}
+</aside>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
+<script src="{% static "startup/js/mainuser.js" %}"></script>
+
+
+<script  src="{% static "startup/js/indexuser.js" %}"></script>
+
+
+
+
+</body>
+
+</html>

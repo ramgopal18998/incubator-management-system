@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<body>
+  <!--left navigation bar-->
+     {% include "startup/base.html" %} 
+
+<section id="contents">
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <i class="fa fa-align-right"></i>
+        </button>
+        <a class="navbar-brand" href="#">Conference Room Booking<span class="main-color"></span></a>
+      </div>
+    {% include "startup/header.html" %}
+    </div>
+  </nav>	
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12" style="color:white;">
+       <br>
+
+
+
+<table id="tbl1" class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Day</th>
+        <th>10</th>
+        <th>11</th>
+        <th>12</th>
+        <th>13</th>
+        <th>14</th>
+         <th>15</th>
+          <th>16</th>
+          <th>17</th>
+          
+        </tr>
+      
+    </thead>
+    <tbody>
+      
+        {% for booking in bookings %}
+        <tr>
+          <td>{{booking.day}}</td>
+              
+              {% if booking.10 == 1 %}
+              <td class="edit" style="background-color: red">{{booking.name}}</td>
+              {% else %}
+              <td class="edit" ></td>
+              {%endif%}
+              {% if booking.11 == 1 %}
+              <td class="edit" style="background-color: red">{{booking.name}}</td>
+              {% else %}
+              <td class="edit" ></td>
+              {%endif%}
+              {% if booking.12 == 1 %}
+              <td class="edit" style="background-color: red">{{booking.name}}</td>
+              {% else %}
+              <td class="edit" ></td>
+              {%endif%}
+              {% if booking.13 == 1 %}
+              <td class="edit" style="background-color: red">{{booking.name}}</td>
+              {% else %}
+              <td class="edit" ></td>
+              {%endif%}
+              {% if booking.14 == 1 %}
+              <td class="edit" style="background-color: red">{{booking.name}}</td>
+              {% else %}
+              <td class="edit" ></td>
+              {%endif%}
+              {% if booking.15 == 1 %}
+              <td class="edit" style="background-color: red">{{booking.name}}</td>
+              {% else %}
+              <td class="edit" ></td>
+              {%endif%}
+              {% if booking.16 == 1 %}
+              <td class="edit" style="background-color: red">{{booking.name}}</td>
+              {% else %}
+              <td class="edit" ></td>
+              {%endif%}
+              {% if booking.17 == 1 %}
+              <td class="edit" style="background-color: red">{{booking.name}}</td>
+              {% else %}
+              <td class="edit" ></td>
+              {%endif%}
+            
+      </tr>
+        {% endfor %}
+        
+        
+     
+      
+    </tbody>
+  </table>
+     </div>
+   </div>
+ </div>	  
+</section>
+<script type="text/javascript">
+  
+function yyyymmdd(diff) {
+
+    var today = new Date();
+  var x = new Date();
+x.setDate(today.getDate()+diff);
+    
+    var y = x.getFullYear().toString();
+    var m = (x.getMonth() + 1).toString();
+    var d = x.getDate().toString();
+
+    (d.length == 1) && (d = '0' + d);
+    (m.length == 1) && (m = '0' + m);
+    var yyyymmdd = y + m + d;
+    return yyyymmdd;
+}
+
+  var row = "";
+  var col = "";
+  var ans = {"Sunday":0,"Monday":1,"Tuesday":2,"Wednesday":3,"Thursday":4,"Friday":5,"Saturday":6,};
+
+	$('#tbl1').on('click', '.edit', function () {
+    var th = $('#tbl1 th').eq($(this).index());
+    var ptsID = $(this).parent("tr").find("td:first").text();
+    col = ptsID;
+    row = th.text();
+    var d1 = ans[col];
+    var d2 = new Date().getDay();
+
+    console.log(d1);
+    console.log(d2);
+    var diff = 0;
+    if(d1>d2)
+    {
+      diff = d1-d2;
+    }
+    else
+    {
+      diff = 6-d2+d1;
+    }
+    var today = yyyymmdd(diff);
+    console.log(today)
+    
+    console.log(ptsID);
+    data = {'row':row,'col':col,'today':today};
+    console.log(data);
+     $.ajax({
+      type: "POST",
+      url: "/startup/select_booking/",
+      data:data,
+      success: function(data){
+        swal("booking is successful");
+      },
+      
+        
+        
+        
+      
+    });
+    alert(th.text() + " " + ptsID); // returns text of respective header
+
+});
+
+
+  
+ 
+</script>
+
+
+<script src='http://code.jquery.com/jquery-latest.js'></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
+
+</body> 
+</html>

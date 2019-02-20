@@ -1,0 +1,108 @@
+{% load static %}
+<!DOCTYPE html>
+ <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Startups</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "startup/css/styleuser.css"%}">
+  </head>
+  <body>
+  <!--left navigation bar-->
+    {% include "administrator/base.html" %} 
+    <section id="contents">
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+              <i class="fa fa-align-right"></i>
+            </button>
+            <a class="navbar-brand" href="#">My<span class="main-color">Startups</span></a>
+          </div>
+          {% include "administrator/header.html" %}
+        </div>
+      </nav>	
+      <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-12" style="color:white;">
+			<br>
+             <h3>Startups</h3>
+			       <section class="admins">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="box">
+                {% if msg != '' %}
+                <script type="text/javascript">swal("milestone successfully added");</script>
+                {% endif %}
+                {% for m in startups_left %} 
+                    
+                      <div class="admin">
+                        <div class="img">
+                          <img class="img-responsive" style="height:85px;width:85px;"  src="{{m.image.url}}" alt="admin">
+                        </div>
+                        <div class="info">
+                          <a href="{% url 'startup:startup_popup' m.id%}" ">
+                          <h3>{{ m.name }}</h3>
+                          <p>{{ m.description|slice:":100" }}</p>
+                          </a>
+                        </div>
+                        <a href="{% url 'administrator:set_milestone' m.id%}"><button class="btn btn-primary">Add Milestone</button></a>
+                        <a href="{% url 'administrator:show_milestone' m.id%}"><button class="btn btn-primary">View Milestones</button></a>
+                      </div>
+                    
+                {% endfor %}
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="box">
+                {% for m in startups_right %} 
+                    
+                      <div class="admin">
+                        <div class="img">
+                          <img class="img-responsive" style="height:85px;width:85px;"  src="{{m.image.url}}" alt="admin">
+                        </div>
+                        <div class="info">
+                          <a href="{% url 'startup:startup_popup' m.id%}" ">
+                          <h3>{{ m.name }}</h3>
+                          <p>{{ m.description|slice:":100" }}</p>
+                          </a>
+                        </div>
+                        <a href="{% url 'administrator:set_milestone' m.id%}"><button class="btn btn-primary">Add Milestone</button></a>
+                        <a href="{% url 'administrator:show_milestone' m.id%}"><button class="btn btn-primary">View Milestones</button></a>
+                      </div>
+                    
+                {% endfor %}
+
+              </div>
+
+            </div>
+          </div>
+          </section>
+			 </div>
+
+          </div>
+        </div>	  
+      </section>
+	        
+  
+
+      <script src='http://code.jquery.com/jquery-latest.js'></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.js"></script>
+      <script src="{% static "startup/js/mainuser.js" %}"></script>
+      </body>
+    </html>
+  
+  
+
+    <script  src="{% static "startup/js/indexuser.js" %}"></script>
+
+
+
+
+</body>
+
+</html>

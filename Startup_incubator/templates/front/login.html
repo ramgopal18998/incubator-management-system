@@ -1,0 +1,325 @@
+{% load static %}
+		<!DOCTYPE html>
+		<html lang="en">
+
+			<head>
+			    <meta charset="utf-8">
+			    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+			    <meta name="viewport" content="width=device-width, initial-scale=1">
+			    <meta name="description" content="">
+			    <meta name="author" content="">
+
+			   <title>36Inc</title>
+			    <!-- Web Fonts -->
+				<link href='http://fonts.googleapis.com/css?family=Roboto:400,900,700,500,300' rel='stylesheet' type='text/css'>
+			    <!-- Flaticon CSS -->
+			    <link href="{% static "startup/css/font-awesome.min.css" %}" %}" rel="stylesheet">
+			    <!-- Offcanvas CSS -->
+			    <link href="{% static "startup/css/hippo-off-canvas.css" %}" rel="stylesheet">
+			    <!-- animate CSS -->
+			    <link href="{% static "startup/css/animate.css" %}" rel="stylesheet">
+			    <!-- owl.carousel CSS -->
+			    <link href="{% static "startup/css/owl.theme.css" %}" rel="stylesheet">
+			    <link href="{% static "startup/css/owl.carousel.css" %}" rel="stylesheet">
+			    <!-- Bootstrap Core CSS -->
+			    <link href="{% static "startup/css/bootstrap.min.css" %}" rel="stylesheet">
+			    <!-- Custom CSS -->
+			    <link href="{% static "startup/css/style.css" %}" rel="stylesheet">
+			    <!-- Responsive CSS -->
+			    <link href="{% static "startup/css/responsive.css" %}" rel="stylesheet">
+	            <link rel="stylesheet" href="{% static "startup/css/styleform.css" %}">
+			    <script src="{% static "startup/js/vendor/modernizr-2.8.1.min.js" %}"></script>
+			    <!-- HTML5 Shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+			    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+			    <!--[if lt IE 9]>
+				    <script src="{% static "startup/js/vendor/html5shim.js" %}"></script>
+				    <script src="{% static "startup/js/vendor/respond.min.js" %}"></script>
+			    <![endif]-->
+			</head>
+
+
+		<body id="page-top" data-spy="scroll"  data-target=".navbar">
+
+		  <div id="st-container" class="st-container">
+		    <div class="st-pusher">
+		        <div class="st-content">
+		            <div class="st-content-inner">
+
+					  	<header class="header">
+							<nav class="navbar navbar-default" role="navigation">
+								<div class="container">
+									<div class="navbar-header">
+				                        <button type="button" class="navbar-toggle collapsed" >
+				                          <span class="sr-only">Toggle navigation</span>
+				                          <i class="fa fa-bars"></i>
+				                        </button>
+									    <!-- offcanvas-trigger-effects -->
+										<h1 class="logo"><a class="navbar-brand" href="index.html"><img src="img/logo.png" alt=""></a></h1>
+									</div>
+
+									<!-- Collect the nav links, forms, and other content for toggling -->
+									<div class="collapse navbar-collapse navbar-collapse">
+										<ul class="nav navbar-nav navbar-right">
+											<li><a class="page-scroll" href="/">Home</a></li>
+											<li><a class="page-scroll" href="{% url 'login:login_user' %}">login</a></li>
+											<li><a class="page-scroll" href="/register">Registration</a></li>
+											<li><a class="page-scroll" href="#">Apply (Mentor/Investor)</a></li>
+										</ul>
+									</div><!-- /.navbar-collapse -->
+								</div><!-- /.container -->
+							</nav>
+						</header>
+
+						<body>
+					<div class="form_wrapper">
+	  <div class="form_container">
+	    <div class="title_container">
+	      <h2> Login Form</h2>
+	    </div>
+	    <div class="row clearfix">
+	      <div class="">
+
+	        <form method="POST" action="" enctype="multipart/form-data">
+	        	
+	        	<div class="input_field"> <span><i aria-hidden="true" class="fa fa-envelope"></i></span>
+	            <input type="email" name="email" placeholder="Email" required />
+	          </div>
+	           <div class="input_field"> <span><i aria-hidden="true" class="fa fa-lock"></i></span>
+	            <input type="password" name="password" placeholder="Password" required />
+	          </div>
+	          <p style="color: red;">{{error_message}}<p>
+	          
+	          
+	<!--           <div class="row clearfix">
+	            <div class="col_half">
+	              <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+	                <input type="text" name="name" placeholder="First Name" />
+	              </div>
+	            </div>
+	            <div class="col_half">
+	              <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+	                <input type="text" name="name" placeholder="Last Name" required />
+	              </div>
+	            </div>
+	          </div>
+	            	<div class="input_field radio_option">
+	              <input type="radio" name="radiogroup1" id="rd1">
+	              <label for="rd1">Male</label>
+	              <input type="radio" name="radiogroup1" id="rd2">
+	              <label for="rd2">Female</label>
+	              </div>
+	              <div class="input_field select_option">
+	                <select>
+	                  <option>Select a country</option>
+	                  <option>Option 1</option>
+	                  <option>Option 2</option>
+	                </select>
+	                <div class="select_arrow"></div>
+	              </div>
+	            <div class="input_field checkbox_option">
+	            	<input type="checkbox" id="cb1">
+	    			<label for="cb1">I agree with terms and conditions</label>
+	            </div>
+	            <div class="input_field checkbox_option">
+	            	<input type="checkbox" id="cb2">
+	    			<label for="cb2">I want to receive the newsletter</label>
+	            </div> -->
+	          <input class="button" type="submit" value="Login" />
+	        </form>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<br>
+	  <script src='https://use.fontawesome.com/4ecc3dbb0b.js'></script>
+				
+						</body>
+						
+						
+						
+						
+						
+						
+				        <!-- footer start -->
+						<footer id="contact" class="footer-widget-wrapper">
+							<div class="container">
+								<div class="row">
+									<div class="col-sm-3 col-md-3 col-md-offset-1">
+										<div class="footer-widget footer-logo">
+											<a href="#"><img src="img/footer-logo.png" alt=""></a>
+										</div><!-- /.col-md-6 -->
+									</div><!-- /.col-md-6 -->
+									<div class="col-sm-3 col-md-2 col-lg-2">
+										<div class="footer-widget">
+											<h3>Social</h3>
+											<ul>
+												<li><a href="#">Twitter</a></li>
+												<li><a href="#">Facebook</a></li>
+												<li><a href="#">Dribble</a></li>
+												<li><a href="#">Linkedin</a></li>
+											</ul>
+										</div><!-- /.footer-widget -->
+									</div><!-- /.col-md-2 -->
+									<div class="col-sm-3 col-md-3">
+										<div class="footer-widget">
+											<h3>Location</h3>
+											<address>
+											  50 Louis St. NW, Ste. 520<br>
+											  Grand Rapids, MI 49503<br>
+											  <!-- Google Map Modal Trigger -->
+											  <a class="modal-map" data-toggle="modal" data-target="#cssMapModal" href="#">View on Google Maps</a>
+											</address>
+
+
+											<!-- Modal -->
+											<div class="modal fade" id="cssMapModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+											  <div class="modal-dialog modal-lg">
+											    <div class="modal-content">
+											      <div class="modal-header">
+											        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+											        <h4 class="modal-title" id="myModalLabel">Our Location</h4>
+											      </div>
+											      <div class="modal-body">
+
+												    <div id="googleMap"></div>
+												    
+											      </div>
+											    </div><!-- /.modal-content -->
+											  </div><!-- /.modal-dialog -->
+											</div><!-- End Modal -->
+
+										</div><!-- /.footer-widget -->
+									</div><!-- /.col-md-2 -->
+									<div class="col-sm-3 col-md-3">
+										<div class="footer-widget">
+											<h3>Get in Touch</h3>
+											<a href="#">+00 (123) 456 789</a>
+											<a href="mailto:#">info@uicookies.com</a>
+											<a class="feedback-modal" data-toggle="modal" data-target="#feedModal" href="#">Send us your feedback</a>
+
+											<!-- Modal -->
+											<div class="modal fade" id="feedModal" tabindex="-1" role="dialog" aria-labelledby="feedModalLabel" aria-hidden="true">
+											  <div class="modal-dialog modal-lg">
+											    <div class="modal-content">
+											      <div class="modal-header">
+											        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+											        <h4 class="modal-title" id="feedModalLabel">Send us your feedback</h4>
+											      </div>
+											      <div class="modal-body">
+													<form id="contactForm" action="sendemail.php" method="POST">
+														<div class="row">
+															<div class="col-md-6">
+																<div class="form-group">
+																    <label for="name">Name</label>
+																    <input id="name" name="name" type="text" class="form-control"  required="" placeholder="Name">
+																</div>
+															</div>
+															<div class="col-md-6">
+															  <div class="form-group">
+															    <label for="email">Email address</label>
+															    <input id="email" name="email" type="email" class="form-control" required="" placeholder="Email">
+															  </div>
+															</div>
+														</div>
+														<div class="row">
+															<div class="col-md-6">
+															  <div class="form-group">
+															    <label for="phone">Phone</label>
+															    <input id="phone" name="phone" type="text" class="form-control" placeholder="Phone">
+															  </div>
+															</div>
+															<div class="col-md-6">
+															  <div class="form-group">
+															    <label for="subject">Subject</label>
+															    <input id="subject" name="subject" type="text" class="form-control" required="" placeholder="Subject">
+															  </div>
+															</div>
+														</div>
+
+														<div class="form-group text-area">
+															<label for="message">Message</label>
+															<textarea id="message" name="message" class="form-control" rows="6" required="" placeholder="Message"></textarea>
+														</div>
+
+														<button type="submit" class="btn btn-primary">Send Message</button>
+													</form>
+											      </div>
+											    </div>
+											  </div>
+											</div>
+										</div><!-- /.footer-widget -->
+									</div><!-- /.col-md-2 -->
+								</div><!-- /.row -->
+
+								<div class="row">
+									<div class="col-xs-12 text-center">
+										<div class="copyright">
+											<p>&copy; 2017 Orchid.  Design by : <a href="https://uicookies.com" title="uiCookies">uiCookies</a></p>
+										</div>
+									</div>
+								</div>
+
+							</div><!-- /.container -->
+						</footer>
+						<!-- footer end -->
+		        </div> <!-- .st-content-inner -->
+		    </div> <!-- .st-content -->
+		    </div> <!-- .st-pusher -->
+
+
+		    	<!-- OFFCANVAS MENU -->
+		    	<div class="offcanvas-menu offcanvas-effect visible-xs">
+			        <button type="button" class="close" aria-hidden="true" data-toggle="offcanvas" id="off-canvas-close-btn">&times;</button>
+			        <h3>Sidebar Menu</h3>
+			        <ul class="list-unstyled">
+			            <li class="active"><a class="offcanvas-link" href="#page-top">Home<span class="sr-only">(current)</span></a></li>
+			            <li><a class="offcanvas-link" href="#services">Services</a></li>
+			            <li><a class="offcanvas-link" href="#work">Works</a></li>
+			            <li><a class="offcanvas-link" href="#about">About</a></li>
+			            <li><a class="offcanvas-link" href="#blog">Blog</a></li>
+			            <li><a class="offcanvas-link" href="#contact">Contact</a></li>
+			        </ul>
+		      	</div><!-- .offcanvas-menu -->
+			</div><!-- /st-container -->
+
+
+				<!-- Preloader -->
+				<div id="preloader">
+					<div id="status">
+						<div class="status-mes"></div>
+					</div>
+				</div>
+
+
+			    <!-- jQuery -->
+			    <script src="{% static "startup/js/jquery.js" %}"></script>
+			    <!-- Bootstrap Core JavaScript -->
+			    <script src="{% static "startup/js/bootstrap.min.js" %}"></script>
+			    <!-- wow.min.js -->
+			    <script src="{% static "startup/js/wow.min.js" %}"></script>
+			    <!-- smoothscroll -->
+			    <script src="{% static "startup/js/smoothscroll.js" %}"></script>
+			    <!-- twitterFetcher_min -->
+			    <script src="{% static "startup/js/twitterFetcher_min.js" %}"></script>
+			    <!-- owl.carousel -->
+			    <script src="{% static "startup/js/owl.carousel.min.js" %}"></script>
+				<!-- Offcanvas Menu -->
+				<script src="{% static "startup/js/hippo-offcanvas.js" %}"></script>
+				<!-- inview -->
+				<script src="{% static "startup/js/jquery.inview.min.js" %}"></script>
+				<!-- stellar -->
+				<script src="{% static "startup/js/jquery.stellar.js" %}"></script>
+				<!-- countTo -->
+				<script src="{% static "startup/js/jquery.countTo.js" %}"></script>
+			    <!-- Scrolling Nav JavaScript -->
+			    <script src="{% static "startup/js/jquery.easing.min.js" %}"></script>
+				<!-- flickerPhoto -->
+				<script src="{% static "startup/js/flickerPhoto.min.js" %}"></script>
+				<!-- Shuffle.min js -->
+				<script src="{% static "startup/js/jquery.shuffle.min.js" %}"></script>
+			    <!-- GOGLE MAP -->
+			    <script src="https://maps.googleapis.com/maps/api/js"></script>
+			    <!-- Custom Script -->
+			    <script src="{% static "startup/js/scripts.js" %}"></script>
+			</body>
+		</html>
