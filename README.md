@@ -1,6 +1,6 @@
 ### How to run the app ?
  - virtualenv -p python3 myenv --no-site-packages
- - source activate myenv
+ - source myenv/bin/activate
  - pip install -r requirements.txt
   - python manage.py runserver
  
